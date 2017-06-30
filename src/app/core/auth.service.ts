@@ -33,6 +33,7 @@ export class AuthService {
     let decoded: any = this.jwtHelper.decodeToken(localStorage.getItem('token'));
     this.loggedUser = new User();
     this.loggedUser.email = decoded.email;
+    this.loggedUser.schoolId = decoded.schoolId;
   }
 
   updateToken(token: string) {

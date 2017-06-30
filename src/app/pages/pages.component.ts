@@ -17,9 +17,8 @@ export class PagesComponent implements OnInit {
               private schoolService: SchoolService, 
               private router: Router) {
     this.school = new School();
-    console.log('BEFORE');
-    this.schoolService.get('1').subscribe(
-      res => {this.school = res; console.info("AKIIII",this.school);}
+    this.schoolService.get(this.authService.getLoggedUser().schoolId.toString()).subscribe(
+      res => this.school = res
     );
   }
 
